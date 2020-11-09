@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./compress.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 
+        Internet Explorer 9 以及更早的版本不支持 input 标签的 accept 属性
+        在文件上传中使用 accept 属性，本例中的输入字段可以接受 GIF 和 JPEG 两种图像
+        accept="image/gif, image/jpeg"
+    -->
+    <input id="fileInput" type="file" accept="image/*" />
+  </div>
+  <script>
+    let fileInput = document.getElementById('fileInput')
+    fileInput.addEventListener('change', function (e) {
+      let files = e.target.files;
+      if (files.length) {
+        let file = files[0];
+        compress(file).then(r => {
+          console.log(r)
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>
