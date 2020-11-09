@@ -4,6 +4,12 @@ const MAX_HEIGHT = 800;
 // 图像质量
 const QUALITY = 0.2;
 
+// 检验是否为图片
+function isImage (type) {
+  let reg = /(image\/jpeg|image\/jpg|image\/png)/gi
+  return reg.test(type)
+}
+
 /**
  * @description base64转文件流  base64 -> blob
  * @param {base64} base64数据
